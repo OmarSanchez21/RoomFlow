@@ -8,7 +8,6 @@ interface ICategoria extends Document {
 }
 
 const CategoriaSchema: Schema = new Schema({
-    _id: { type: Schema.Types.ObjectId, auto: true },
     nombre: { type: String, required: true },
     descripcion: { type: String, required: true }
 });
