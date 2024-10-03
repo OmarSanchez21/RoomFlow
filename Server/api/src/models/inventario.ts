@@ -10,10 +10,12 @@ interface IInvetario extends Document {
 }
 const InventarioSchema: Schema = new Schema({
     nombre: String,
-    categoria: { type: Schema.Types.ObjectId, ref: 'Categoria' },
+    categoria: { type: Schema.Types.ObjectId, ref: 'Inv_Categoria' },
     cantidad: Number,
     proveedor: { type: Schema.Types.ObjectId, ref: 'Proveedor' },
     precio: Number,
     fechaProxPedido: Date
 })
 const InventarioModel = mongoose.model<IInvetario>('Inventario', InventarioSchema);
+
+export default InventarioModel;
