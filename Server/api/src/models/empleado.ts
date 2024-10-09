@@ -4,7 +4,7 @@ interface IEmployee extends Document {
     cedula: string;
     nombre: string;
     email: string;
-    usename: string;
+    username: string;
     password: string;
     role: string;
     telefono: Number;
@@ -15,13 +15,13 @@ const EmployeesSchema = new Schema({
     cedula: { type: String, required: true },
     nombre: { type: String, required: true },
     email: { type: String, required: true },
-    usename: { type: String, required: true },
+    username: { type: String, required: true },
     password: { type: String, required: true },
     role: { type: String, required: true },
     telefono: { type: Number, required: true },
     fCumpleaños: { type: Date, required: true },
     PaisOrigen: { type: String, required: true },
 })
-const EmployeeModel = mongoose.model<IEmployee>('Employee', EmployeesSchema);
+const EmpleadoModel = mongoose.model<IEmployee>('Employee', EmployeesSchema);
 
-export default EmployeeModel;
+export default EmpleadoModel;

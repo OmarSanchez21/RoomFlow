@@ -25,3 +25,5 @@ const PagoSchema: Schema = new Schema({
 })
 
 const PagoModel = mongoose.model<IPago>('Pago', PagoSchema);
+
+export default PagoModel;

@@ -25,13 +25,6 @@ const ReservaSchema: Schema = new Schema({
     },
     fechaInicio: Date,
     fechaFin: Date,
-    servicios: [{
-        servicioid: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "Servicio"
-        },
-        monto: Number
-    }],
     estado: String,
     fechaCheckIn: Date,
     fechaCheckOut: Date

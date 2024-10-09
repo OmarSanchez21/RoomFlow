@@ -12,7 +12,7 @@ const ProveedoresSchema = new Schema({
     telefono: {type: String, required: true},
     correo: {type: String, required: true, unique: true},
     direccion: {type: String, required: true},
-}, {_id:true});
+});
 const ProveedorModel = mongoose.model<IProveedor>('Proveedor', ProveedoresSchema);
 
 export default ProveedorModel;
