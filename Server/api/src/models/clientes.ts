@@ -7,13 +7,13 @@ interface ICliente extends Document {
     password: string;
     telefono: string;
     direccion?: string;
-    historial: [{
+    historial?: [{
         habitacion: mongoose.Schema.Types.ObjectId;
         fechaentrada: Date;
         fechasalida?: Date;
     }];
     fecharegistro: Date;
-    comentarios:[mongoose.Schema.Types.ObjectId]
+    comentarios?:[mongoose.Schema.Types.ObjectId]
 }
 
 const ClienteSchema: Schema = new Schema({

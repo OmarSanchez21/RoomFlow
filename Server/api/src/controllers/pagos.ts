@@ -17,7 +17,7 @@ const PagosControllers = {
             return res.status(500).json(createErrorResponse("Error interno del servidor", 500));
         }
     },
-    getOneById: async (req: Request, res: Response) => {
+    getOne: async (req: Request, res: Response) => {
         try {
             const { id } = req.params;
             const pago = await PagoModel.findById(id);

@@ -28,20 +28,20 @@ const ClienteControllers = {
             return res.status(500).json(createErrorResponse("Error interno", 500));
         }
     },
-    Edit: async(req: Request, res: Response) =>{
-        try{
-            const _id = req.params.id
-            const updated = req.body
-            const cliente = await ClienteModel.findByIdAndUpdate(_id, updated);
-            if(!cliente){
-                return res.status(404).json(createErrorResponse("Cliente no encontrado",404))
-            };
-            return res.status(200).json(createSuccessResponse("Cliente modificado", 200, cliente));
-        }catch(error){
-            logError(`Failed to update Cliente ${error}`);
-            return res.status(500).json(createErrorResponse("Failed to update Cliente", 500))
+    Edit: async(req: Request, res: Response) => {
+        try {
+            const _id = req.params.id;
+            const {documentacion, nombre, email, telefono, direccion} = req.body;
+            const updated = await ClienteModel.findByIdAndUpdate(_id, {documentacion, nombre, email, telefono, direccion}, {new: true});
+            if (!updated) {
+                return res.status(404).json(createErrorResponse('No se pudo actualizar el cliente', 404));
+            }
+            return res.status(200).json(createSuccessResponse('Cliente actualizada correctamente', 200, updated));
+        } catch (error) {
+            logError(`Failed Updating Reserva: ${error}`);
+            return res.status(500).json(createErrorResponse('Error interno del servidor', 500));
         }
-    },
+    },    
     Delete: async(req: Request, res: Response) => {
         try {
             const { id } = req.params;

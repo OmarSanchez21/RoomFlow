@@ -65,6 +65,19 @@ const ReservaControllers = {
             logError(`Failed Deleting Reserva: ${error}`);
             return res.status(500).json(createErrorResponse('Error interno del servidor', 500));
         }
+    },
+    getByClient: async (req: Request, res: Response) => {
+        try {
+            const { idclient } = req.body
+            const reservas = await ReservaModel.find({ cliente: idclient });
+            if(!reservas || reservas.length === 0 ){
+                return res.status(404).json(createErrorResponse('No se encontraron reservas', 404));
+            }
+            return res.status(200).json(createSuccessResponse('Reservas encontradas', 200, reservas));
+        } catch (error) {
+            logError(`Failed Getting All Reserva: ${error}`);
+            return res.status(500).json(createErrorResponse('Error interno del servidor', 500));
+        }
     }
 }
 
