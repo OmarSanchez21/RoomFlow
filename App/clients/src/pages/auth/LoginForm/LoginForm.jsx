@@ -4,6 +4,7 @@ import { FaUser, FaLock } from "react-icons/fa";
 
 const LoginForm = () => {
   return (
+    <div className="body">
     <div className='wrapper'>
         <form action=''>
             <h1>Login</h1>
@@ -24,9 +25,10 @@ const LoginForm = () => {
             <button type="submit">Iniciar Sesion</button>
 
             <div className="register-link">
-                <p>No tienes una cuenta? <a href='{RegisterForm}'>Registrate</a></p>
+                <p>No tienes una cuenta? <a href='/register'>Registrate</a></p>
             </div>
         </form>
+    </div>
     </div>
   )
 }
